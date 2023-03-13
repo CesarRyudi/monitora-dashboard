@@ -30,7 +30,7 @@ const Dashboard = () => {
                   Download Reports
                 </Button>
             </Box>
-        </Box>
+    </Box>
 
             {/* Grid and charts  */}
             <Box
@@ -40,85 +40,6 @@ const Dashboard = () => {
             gap="20px"
             mt="8px"
             >
-                {/* ROW 1
-                <Box 
-                gridColumn="span 3" 
-                backgroundColor={colors.primary[400]} 
-                display="flex" 
-                alignItems="center" 
-                justifyContent="center"
-                >
-                    <StatBox 
-                    title="12,123"
-                    subtitle="Emails sent"
-                    progress="0.75"
-                    increase="14%"
-                    icon={
-                        <EmailIcon 
-                        sx={{ color: colors.greenAccent[600], fontSiize: "26px" }}/>
-                    }
-                    />
-
-                </Box>
-
-                <Box 
-                gridColumn="span 3" 
-                backgroundColor={colors.primary[400]} 
-                display="flex" 
-                alignItems="center" 
-                justifyContent="center"
-                >
-                    <StatBox 
-                    title="123,22"
-                    subtitle="Sales Obtained"
-                    progress="0.5"
-                    increase="21%"
-                    icon={
-                        <PointOfSaleIcon
-                        sx={{ color: colors.greenAccent[600], fontSiize: "26px" }}/>
-                        }
-                    />
-                </Box>
-
-
-                <Box 
-                gridColumn="span 3" 
-                backgroundColor={colors.primary[400]} 
-                display="flex" 
-                alignItems="center" 
-                justifyContent="center"
-                >
-                    <StatBox 
-                    title="434,54"
-                    subtitle="New Clients"
-                    progress="0.3"
-                    increase="35%"
-                    icon={
-                        <PersonAddIcon 
-                        sx={{ color: colors.greenAccent[600], fontSiize: "26px" }}/>
-                    }
-                    />
-                </Box>
-
-                <Box 
-                gridColumn="span 3" 
-                backgroundColor={colors.primary[400]} 
-                display="flex" 
-                alignItems="center" 
-                justifyContent="center"
-                >
-                    <StatBox 
-                    title="65453"
-                    subtitle="Traffic Inbouund"
-                    progress="0.8"
-                    increase="43%"
-                    icon={
-                        <TrafficIcon 
-                        sx={{ color: colors.greenAccent[600], fontSiize: "26px" }}/>
-                    }
-                    />
-                </Box> */}
-
                 {/* ROW 2 */}
                 <Box
                 gridColumn="span 7"
@@ -189,7 +110,7 @@ const Dashboard = () => {
             {/* Transactiions  */}
             <Box 
             gridColumn="span 12"
-            gridRow="span 1"
+            gridRow="span 2"
             backgroundColor={colors.primary[400]}
             overflow="auto"
             >
