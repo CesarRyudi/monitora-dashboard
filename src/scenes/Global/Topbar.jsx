@@ -17,7 +17,7 @@ const Topbar = () => {
     return ( 
     <Box display="flex" justifyContent="space-between" p={2} mb="-20px">
         {/* Calendário */}
-        <Box display="flex" backgroundColor={colors.primary[400]} borderRadius="6px">
+        <Box display="flex" backgroundColor={colors.primary[400]} borderRadius="6px"  >
             
              <DateRangePickerComp sx={{ ml:2, flex:1 }} />
         </Box>

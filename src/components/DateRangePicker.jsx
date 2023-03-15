@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from "react";
-import { DateRangePicker } from "react-date-range";
 import { DateRange } from "react-date-range";
 import format from "date-fns/format";
 import { addDays } from "date-fns";
@@ -8,12 +7,10 @@ import { useTheme } from '@mui/material';
 import  InputBase  from "@mui/material/InputBase";
 import * as locales from 'react-date-range/dist/locale';
 
+import styled from 'styled-components';
+
 import 'react-date-range/dist/styles.css'; // main style file
 import 'react-date-range/dist/theme/default.css'; // theme css file
-
-
-// import './Style/styles.css'; 
-// import './Style/default.css'; 
 
 
 
@@ -26,7 +23,7 @@ const DateRangePickerComp = () => {
         {
             startDate: addDays(new Date(), -7),
             endDate: new Date(),
-            color: colors.blueAccent[300],
+            color: colors.blueAccent[500],
             locale: 'Portuguese',
             key: 'selection',
         
@@ -49,39 +46,27 @@ const DateRangePickerComp = () => {
     }
 
     const hideOnClickOutside = (e) => {
-        // console.log(refOne.current)
-        // console.log(e.target)
-        if( refOne.current && !refOne.current.contains(e.target) ) setOpen(false)
 
+        if(!refOne.current.contains(e.target) ) setOpen(false)
+        // if( refOne.current && !refOne.current.contains(e.target) ) setOpen(false)
     }
 
 
   return (
     <div className="calendarWrap">
 
-        {/* <input 
-            style={{backgroundColor: colors.blueAccent[700], color:colors.grey[100] }}
-            value={ ` ${format(range[0].startDate, "dd/MM/yyyy")} a ${format(range[0].endDate, "dd/MM/yyyy")} ` }
-            readOnly
-            className="inputBox"
-            onClick={ () => setOpen(open => !open)}
-        /> */}
-
         <InputBase 
-        sx={{ ml:1, mt:0.5 ,flex:1 }} 
-        placeholder="Search"
+        sx={{ ml:1, mt:0.5, flex:1, input: { cursor: 'pointer' }}}
+        placeholder="Data"
         value={ ` ${format(range[0].startDate, "dd/MM/yyyy")} a ${format(range[0].endDate, "dd/MM/yyyy")} ` }
         readOnly
         onClick={ () => setOpen(open => !open)}
-
         />
         
         <div ref={refOne}>
 
         {open &&
-        // <DateRangePicker
         <DateRange 
-        //   style={{ background:"#3d91ff", color: colors.grey[100]}}
           onChange = { item => setRange([item.selection]) }
           editableDateInputs={true}
           moveRangeOnFirstSelection={false}
@@ -108,7 +93,7 @@ const DateRangePickerComp = () => {
         }
         </div>
 
-        </div>
+    </div>
   )
 }
 
