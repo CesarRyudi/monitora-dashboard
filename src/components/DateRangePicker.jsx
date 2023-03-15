@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { DateRangePicker } from "react-date-range";
+import { DateRange } from "react-date-range";
 import format from "date-fns/format";
 import { addDays } from "date-fns";
 import { tokens } from '../theme';
@@ -7,9 +8,12 @@ import { useTheme } from '@mui/material';
 import  InputBase  from "@mui/material/InputBase";
 import * as locales from 'react-date-range/dist/locale';
 
+import 'react-date-range/dist/styles.css'; // main style file
+import 'react-date-range/dist/theme/default.css'; // theme css file
 
-import './Style/styles.css'; 
-import './Style/default.css'; 
+
+// import './Style/styles.css'; 
+// import './Style/default.css'; 
 
 
 
@@ -41,7 +45,6 @@ const DateRangePickerComp = () => {
     }, [])
 
     const hideOnEscape = (e) => {
-        console.log(e.key)
         if(e.key === "Escape") setOpen(false)
     }
 
@@ -76,7 +79,8 @@ const DateRangePickerComp = () => {
         <div ref={refOne}>
 
         {open &&
-        <DateRangePicker
+        // <DateRangePicker
+        <DateRange 
         //   style={{ background:"#3d91ff", color: colors.grey[100]}}
           onChange = { item => setRange([item.selection]) }
           editableDateInputs={true}
