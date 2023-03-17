@@ -10,7 +10,7 @@ const LineChart = () => {
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
 
-    const handleOnClick = useCallback(() => navigate('/sample', {replace: true}), [navigate]);
+    const handleOnClick = useCallback(() => navigate('/line', {replace: true}), [navigate]);
     
     
     return (
@@ -55,7 +55,7 @@ const LineChart = () => {
             }}
         
         
-        margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
+        margin={{ top: 10, right: 180, bottom: 100, left: 100 }}
         xScale={{ type: 'point' }}
         yScale={{
             type: 'linear',
@@ -70,10 +70,10 @@ const LineChart = () => {
         axisRight={null}
         axisBottom={{
             orient: 'bottom',
-            tickSize: 5,
+            tickSize: 0,
             tickPadding: 5,
-            tickRotation: 0,
-            legend: 'transportation',
+            tickRotation: -28,
+            legend: '',
             legendOffset: 36,
             legendPosition: 'middle'
         }}

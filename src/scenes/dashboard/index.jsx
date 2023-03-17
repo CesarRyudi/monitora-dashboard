@@ -42,9 +42,11 @@ const Dashboard = () => {
             >
                 {/* ROW 2 */}
                 <Box
-                gridColumn="span 7"
+                borderRadius="12px"
+                gridColumn="span 9"
                 gridRow="span 2"
                 backgroundColor={colors.primary[400]}
+                
                 >
                     <Box
                     mt="25px"
@@ -52,64 +54,26 @@ const Dashboard = () => {
                     display="flex"
                     justifyContent="center"
                     alignItems="center"
-                    >
-                        <Box>
-                            <Typography variant="h5" fontWeight="600" color={colors.grey[100]}>
-                            Revenue generate    
-                            </Typography>
-
-                            <Typography variant="h3" fontWeight="bold" color={colors.greenAccent[500]}>
-                            $59,342,32.56
-                            </Typography>
-                        </Box>
-
-                        <Box>
-                            <IconButton>
-                                <DownloadOutlinedIcon 
-                                sx={{ fontSize: "26px", color: colors.greenAccent[500] }}
-                                />
-                            </IconButton>
-                        </Box>
-                    </Box>
-
-                    <Box height="250px" mt="-20px">
-                        <LineChart isDashboard={true} />
-                    </Box>
-            </Box>    
-            {/* Pie Chart */}
-             <Box
-                gridColumn="span 5"
-                gridRow="span 2"
-                backgroundColor={colors.primary[400]}
-                >
-                    <Box
-                    mt="25px"
-                    p="0 30px"
-                    display="flex"
-                    justifyContent="center"
-                    alignItems="center"
+                    
                     >
                         <Box>
                             <Typography variant="h4" fontWeight="600" color={colors.grey[100]}>
-                            Pie chart example   
+                                Gráfico de Linhas
                             </Typography>
                         </Box>
-                        <Box>
-                            <IconButton>
-                                <DownloadOutlinedIcon 
-                                sx={{ fontSize: "26px", color: colors.greenAccent[500] }}
-                                />
-                            </IconButton>
-                        </Box>
+
                     </Box>
 
-                    <Box height="250px" mt="-20px">
-                        <PieChart isDashboard={true} />
+                    <Box height="250px" >
+                        <LineChart isDashboard={true} />
                     </Box>
-            </Box>
+            </Box> 
+
             {/* Transactiions  */}
             <Box 
-            gridColumn="span 12"
+            
+            borderRadius="12px"
+            gridColumn="span 3"
             gridRow="span 2"
             backgroundColor={colors.primary[400]}
             overflow="auto"
@@ -123,7 +87,7 @@ const Dashboard = () => {
                     p="15px"
                 >
                     <Typography color={colors.grey[100]} variant="h5" fontWeight={600} >
-                        Recent Transactions 
+                        Dados atais 
                     </Typography>
                 </Box>
                 {mockTransactions.map(( transaction, i) => (
@@ -169,6 +133,117 @@ const Dashboard = () => {
 
                 ))}
             </Box>
+
+
+
+            {/* Pie Chart */}
+             <Box
+                gridColumn="span 3"
+                gridRow="span 2"
+                mb="35px"
+                backgroundColor={colors.primary[400]}
+                borderRadius="12px"
+                >
+                    <Box
+                    mt="10px"
+                    p="0 0px"
+                    display="flex"
+                    justifyContent="center"
+                    alignItems="center"
+                    >
+                        <Box>
+                            <Typography variant="h4" fontWeight="600" color={colors.grey[100]}>
+                            Médias ponto 1   
+                            </Typography>
+                        </Box>
+                    </Box>
+
+                    <Box height="250px" mt="">
+                        <PieChart isDashboard={true} />
+                    </Box>
+                </Box>
+
+            {/* Pie Chart 2 */}
+                <Box
+                gridColumn="span 3"
+                gridRow="span 2"
+                mb="35px"
+                backgroundColor={colors.primary[400]}
+                borderRadius="12px"
+                >
+                    <Box
+                    mt="10px"
+                    p="0 0px"
+                    display="flex"
+                    justifyContent="center"
+                    alignItems="center"
+                    >
+                        <Box>
+                            <Typography variant="h4" fontWeight="600" color={colors.grey[100]}>
+                            Médias ponto 2   
+                            </Typography>
+                        </Box>
+                    </Box>
+
+                    <Box height="250px" mt="">
+                        <PieChart isDashboard={true} />
+                    </Box>
+                </Box>
+
+                {/* Pie Chart 3 */}
+                <Box
+                gridColumn="span 3"
+                gridRow="span 2"
+                mb="35px"
+                backgroundColor={colors.primary[400]}
+                borderRadius="12px"
+                >
+                    <Box
+                    mt="10px"
+                    p="0 0px"
+                    display="flex"
+                    justifyContent="center"
+                    alignItems="center"
+                    >
+                        <Box>
+                            <Typography variant="h4" fontWeight="600" color={colors.grey[100]}>
+                            Médias ponto 3   
+                            </Typography>
+                        </Box>
+                    </Box>
+
+                    <Box height="250px" mt="">
+                        <PieChart isDashboard={true} />
+                    </Box>
+                </Box>
+
+                {/* Pie Chart 4 */}
+                <Box
+                gridColumn="span 3"
+                gridRow="span 2"
+                mb="35px"
+                backgroundColor={colors.primary[400]}
+                borderRadius="12px"
+                >
+                    <Box
+                    mt="10px"
+                    p="0 0px"
+                    display="flex"
+                    justifyContent="center"
+                    alignItems="center"
+                    >
+                        <Box>
+                            <Typography variant="h4" fontWeight="600" color={colors.grey[100]}>
+                            Médias ponto 4   
+                            </Typography>
+                        </Box>
+                    </Box>
+
+                    <Box height="250px" mt="">
+                        <PieChart isDashboard={true} />
+                    </Box>
+                </Box>
+            
 
         </Box>
     </Box>

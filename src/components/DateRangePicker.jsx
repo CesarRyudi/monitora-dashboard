@@ -3,11 +3,10 @@ import { DateRange } from "react-date-range";
 import format from "date-fns/format";
 import { addDays } from "date-fns";
 import { tokens } from '../theme';
-import { useTheme } from '@mui/material'; 
+import { Icon, useTheme } from '@mui/material'; 
 import  InputBase  from "@mui/material/InputBase";
 import * as locales from 'react-date-range/dist/locale';
-
-import styled from 'styled-components';
+import CalendarTodayOutlinedIcon from "@mui/icons-material/CalendarTodayOutlined";
 
 import 'react-date-range/dist/styles.css'; // main style file
 import 'react-date-range/dist/theme/default.css'; // theme css file
@@ -47,24 +46,22 @@ const DateRangePickerComp = () => {
 
     const hideOnClickOutside = (e) => {
 
-        if(!refOne.current.contains(e.target) ) setOpen(false)
-        // if( refOne.current && !refOne.current.contains(e.target) ) setOpen(false)
+        if( refOne.current && !refOne.current.contains(e.target) ) setOpen(false)
     }
 
 
   return (
     <div className="calendarWrap">
 
-        <InputBase 
-        sx={{ ml:1, mt:0.5, flex:1, input: { cursor: 'pointer' }}}
+        <InputBase
+        sx={{ ml:.5, mt:0, flex:1, input: { cursor: 'pointer' }}}
         placeholder="Data"
         value={ ` ${format(range[0].startDate, "dd/MM/yyyy")} a ${format(range[0].endDate, "dd/MM/yyyy")} ` }
         readOnly
         onClick={ () => setOpen(open => !open)}
         />
         
-        <div ref={refOne}>
-
+        <div>
         {open &&
         <DateRange 
           onChange = { item => setRange([item.selection]) }
@@ -78,6 +75,7 @@ const DateRangePickerComp = () => {
           calendarFocus="backwards"
           className="calendarElement"
           locale = {locales.pt}
+          icon={<CalendarTodayOutlinedIcon />}
           style = {{
             fromDot: {backgroundColor: 'rgb(100, 0, 34)'},
             toDot: {backgroundColor: 'rgb(0, 135, 255)'},
@@ -88,6 +86,7 @@ const DateRangePickerComp = () => {
             customRangeButtons: {backgroundColor: 'rgb(40, 90, 75)'},
             customRangeSelected: {backgroundColor: 'rgb(100, 90, 200)'},
             standaloneLayout:{display:'flex', maxWidth:'fit-content'}
+            
         }}
         />
         }

@@ -1,4 +1,4 @@
-import { Box, IconButton, useTheme } from "@mui/material";
+import { Box, IconButton, Select, useTheme } from "@mui/material";
 import { useContext } from "react";
 import { ColorModeContext, tokens } from "../../theme";
 import  InputBase  from "@mui/material/InputBase";
@@ -8,6 +8,8 @@ import  NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutline
 import  SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import  PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import DateRangePickerComp from "../../components/DateRangePicker";
+import SelectComp from "../../components/DropDown";
+import SelectPonto from "../../components/DropDownPontos";
 
 const Topbar = () => {
     const theme = useTheme();
@@ -15,12 +17,26 @@ const Topbar = () => {
     const colorMode = useContext(ColorModeContext);
 
     return ( 
-    <Box display="flex" justifyContent="space-between" p={2} mb="-20px">
+    <Box display="flex" justifyContent="space-between" p={0} mb="20px">
+
         {/* Calendário */}
-        <Box display="flex" backgroundColor={colors.primary[400]} borderRadius="6px"  >
-            
-             <DateRangePickerComp sx={{ ml:2, flex:1 }} />
+        
+        <Box display="flex" justifyContent="space-between" p={2} mb="-20px" backgroundColor={colors.primary[500]}>
+            <Box display="flex" backgroundColor={colors.primary[400]} borderRadius="6px"  >
+                <DateRangePickerComp />
+            </Box>
+            <Box display="flex" backgroundColor={colors.primary[400]} borderRadius="6px" ml={2} >
+                    <SelectComp />
+            </Box>
+            <Box display="flex" backgroundColor={colors.primary[400]} borderRadius="6px" ml={2} >
+                    <SelectPonto />
+            </Box>
         </Box>
+
+        {/* Select */}
+        {/* <Box display="flex" backgroundColor={colors.primary[400]} borderRadius="6px"  >
+            
+        </Box> */}
 
         {/* ICONS */}
         <Box display="flex" >
