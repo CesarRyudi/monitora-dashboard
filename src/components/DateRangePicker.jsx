@@ -8,6 +8,11 @@ import  InputBase  from "@mui/material/InputBase";
 import * as locales from 'react-date-range/dist/locale';
 import CalendarTodayOutlinedIcon from "@mui/icons-material/CalendarTodayOutlined";
 
+
+import ReactDOM from 'react-dom';
+import Modal from 'react-modal';
+
+
 import 'react-date-range/dist/styles.css'; // main style file
 import 'react-date-range/dist/theme/default.css'; // theme css file
 
@@ -49,6 +54,17 @@ const DateRangePickerComp = () => {
         if( refOne.current && !refOne.current.contains(e.target) ) setOpen(false)
     }
 
+    const customStyles = {
+    content: {    
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)',
+  },
+};
+
 
   return (
     <div className="calendarWrap">
@@ -61,7 +77,11 @@ const DateRangePickerComp = () => {
         onClick={ () => setOpen(open => !open)}
         />
         
-        <div>
+        <Modal
+        isOpen={open}
+        style={customStyles}
+        contentLabel="Example Modal"
+        >
         {open &&
         <DateRange 
           onChange = { item => setRange([item.selection]) }
@@ -90,7 +110,7 @@ const DateRangePickerComp = () => {
         }}
         />
         }
-        </div>
+        </Modal>
 
     </div>
   )

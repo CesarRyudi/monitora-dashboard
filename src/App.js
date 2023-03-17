@@ -8,16 +8,31 @@ import Contacts from "./scenes/contacts";
 import Form from "./scenes/form";
 import Line from "./scenes/line";
 import Pie from "./scenes/pie";
+import fetchData from "./Funcoes/BuscaData";
+import { useEffect, useState } from "react";
 
-
+ 
 
 
 function App() {
+
   const [theme, colorMode] = useMode();
 
+    const [data, setData] = useState([]);
+
+     useEffect(() => {
+       async function fetchDataFromAPI() {
+         const data = await fetchData();
+         setData(data);
+       }
+       fetchDataFromAPI();
+     }, []);
+
+    console.log(data)
 
 
   return (
+    
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
         <CssBaseline />

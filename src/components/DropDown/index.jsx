@@ -20,8 +20,8 @@ const SelectComp = () => {
     const style = {
     searchBox: {
             border: "none",
-            "font-size": "10px",
-            "min-height": "30px",
+            "fontSize": "10px",
+            "minHeight": "30px",
             width: "100%"
         },
     chips: { 

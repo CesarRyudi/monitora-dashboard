@@ -11,7 +11,7 @@ const Line = () => {
     return (
       <div>
             <Box m="20px">
-                <Header title="Line Chart" subtitle="Just a Line Chart" />
+                <Header title="Gráfico de Linhas" subtitle="Gráfico das leituras de todos os pontos selecionados" />
                 <Box height="75vh">
                     <LineChart />
                 </Box>

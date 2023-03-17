@@ -23,7 +23,7 @@ const Tabela = () => {
 
     return (
         <Box m="20px">
-            <Header title="CONTACTS" subtitle="List of contacts" />
+            <Header title="LEITURAS" subtitle="Tabela com a leituras de todos os pontos selecionados" />
             <Box
             m="40px 0 0 0"
             height="75vh" sx={{

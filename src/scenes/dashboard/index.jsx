@@ -20,14 +20,14 @@ const Dashboard = () => {
     return (
     <Box m="20px">
                 <Box display="flex" justifyContent="space-between" alignItems="center">
-                <Header title="DASHBOARD" subtitle="welcome to your dashboard" />
+                <Header title="DASHBOARD" subtitle="Bem vindo ao dashboard!" />
                 
 
             <Box>
                 <Button
                   sx={{ background: colors.blueAccent[700], color: colors.grey[100], fontSize: "14px", fontWeight: "bold", padding:"10px 20px" }}>
                   <DownloadOutlinedIcon sx={{ mr: "10px"}} />
-                  Download Reports
+                  Baiixar relatório
                 </Button>
             </Box>
     </Box>

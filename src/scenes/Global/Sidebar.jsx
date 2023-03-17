@@ -107,7 +107,7 @@ const Sidebar = () => {
                         setSelected={setSelected}
                         />
 
-                        <Typography variant="h6" color={colors.grey[300]} sx={{m: "15px 0 5px 20px" }}>Data</Typography>
+                        <Typography variant="h6" color={colors.grey[300]} sx={{m: "15px 0 5px 20px" }}>Tabelas</Typography>
 
                         <Item title="Tabela de Leituras " 
                         to="/tabela" 
@@ -116,7 +116,7 @@ const Sidebar = () => {
                         setSelected={setSelected}
                         />
 
-                        <Typography variant="h6" color={colors.grey[300]} sx={{m: "15px 0 5px 20px" }}>Forms</Typography>
+                        <Typography variant="h6" color={colors.grey[300]} sx={{m: "15px 0 5px 20px" }}>Cadastro</Typography>
                         
                         <Item title="Cadastro de Locais" 
                         to="/cadastro" 
@@ -137,16 +137,16 @@ const Sidebar = () => {
                         setSelected={setSelected}
                         /> */}
 
-                        <Typography variant="h6" color={colors.grey[300]} sx={{m: "15px 0 5px 20px" }}>Charts</Typography>
+                        <Typography variant="h6" color={colors.grey[300]} sx={{m: "15px 0 5px 20px" }}>Gráficos</Typography>
                         
-                        <Item title="Line Chart" 
+                        <Item title="Gráfico de Linhas" 
                         to="/line" 
                         icon={<TimelineOutlinedIcon />}
                         selected={selected}
                         setSelected={setSelected}
                         />
 
-                        <Item title="Pie Chart " 
+                        <Item title="Gráfico de Pizza" 
                         to="/pie" 
                         icon={<PieChartOutlineOutlinedIcon />}
                         selected={selected}
