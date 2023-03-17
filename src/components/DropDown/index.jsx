@@ -2,8 +2,13 @@ import { green, red } from '@mui/material/colors';
 import { color } from '@mui/system';
 import Multiselect from 'multiselect-react-dropdown';
 import { useState } from 'react';
+import { useTheme } from "@mui/material";
+import { tokens } from "../../theme";
 
 const SelectComp = () => {
+    
+    const theme = useTheme();
+    const colors = tokens(theme.palette.mode);
 
   const [options, setOptions] = useState([
                                     'Endereço 1',
@@ -14,11 +19,19 @@ const SelectComp = () => {
                                 ])
     const style = {
     searchBox: {
-            border:"none",
+            border: "none",
             "font-size": "10px",
             "min-height": "30px",
             width: "100%"
-        }
+        },
+    chips: { 
+        color: "white",
+        background: colors.blueAccent[500],
+        backgronudColor: "red",
+    },
+    multiselectContainer: { 
+        width: "100%"
+    }
   }
 
     return (
