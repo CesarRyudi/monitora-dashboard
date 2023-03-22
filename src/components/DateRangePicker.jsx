@@ -7,17 +7,12 @@ import { Icon, useTheme } from '@mui/material';
 import  InputBase  from "@mui/material/InputBase";
 import * as locales from 'react-date-range/dist/locale';
 import CalendarTodayOutlinedIcon from "@mui/icons-material/CalendarTodayOutlined";
-
-
 import ReactDOM from 'react-dom';
 import Modal from 'react-modal';
-
 
 import 'react-date-range/dist/styles.css'; // main style file
 import 'react-date-range/dist/theme/default.css'; // theme css file
 import { ref } from "yup";
-
-
 
 
 const DateRangePickerComp = () => {
@@ -37,34 +32,27 @@ const DateRangePickerComp = () => {
 
     const [open, setOpen] = useState(false)
 
-    const refOne = useRef(null)
-    const refCalendario = useRef(null)
-
-
-    useEffect(() => {
-        document.addEventListener("keydown", hideOnEscape, true)
-        // document.addEventListener("click", hideOnClickOutside, true)
-
-    }, [])
-    
-    const hideOnEscape = (e) => {
-        if(e.key === "Escape") setOpen(false)
-    }
-
-
+    const modalRef = useRef();
+  const calendarRef = useRef();
 
   useEffect(() => {
     function handleClickOutside(event) {
-      if (refCalendario.current && !refCalendario.current.contains(event.target)) {
+      if (
+        modalRef.current &&
+        !modalRef.current.contains(event.target) &&
+        calendarRef.current &&
+        !calendarRef.current.contains(event.target)
+
+      ) {
         setOpen(false);
       }
     }
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, [refCalendario]);
 
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [modalRef, calendarRef]);
 
 
     const customStyles = {
@@ -80,7 +68,7 @@ const DateRangePickerComp = () => {
 
 
   return (
-    <div className="calendarWrap">
+    <div>
 
         <InputBase
         sx={{ ml:.5, mt:0, flex:1, input: { cursor: 'pointer' }}}
@@ -91,15 +79,15 @@ const DateRangePickerComp = () => {
         
         />
         
+        {open && (
+          <div className="modal" ref={modalRef}> 
         <Modal
         isOpen={open}
         style={customStyles}
         contentLabel="Example Modal"
         >
-        {open &&
-        <DateRange  
-          ref={refCalendario}
-          classNames={"calendario"}
+          <div className="calendar" ref={calendarRef}>
+        <DateRange
           onChange = { item => setRange([item.selection]) }
           editableDateInputs={true}
           moveRangeOnFirstSelection={false}
@@ -125,8 +113,11 @@ const DateRangePickerComp = () => {
             
         }}
         />
-        }
+        </div>
         </Modal>
+        </div>
+        )
+        }
 
     </div>
   )

@@ -27,7 +27,7 @@ const Dashboard = () => {
                 <Button
                   sx={{ background: colors.blueAccent[700], color: colors.grey[100], fontSize: "14px", fontWeight: "bold", padding:"10px 20px" }}>
                   <DownloadOutlinedIcon sx={{ mr: "10px"}} />
-                  Baiixar relatório
+                  Baixar relatório
                 </Button>
             </Box>
     </Box>
@@ -87,7 +87,7 @@ const Dashboard = () => {
                     p="15px"
                 >
                     <Typography color={colors.grey[100]} variant="h5" fontWeight={600} >
-                        Dados atais 
+                        Dados atuais 
                     </Typography>
                 </Box>
                 {mockTransactions.map(( transaction, i) => (
@@ -110,7 +110,7 @@ const Dashboard = () => {
 
                             <Typography 
                             color={colors.greenAccent[500]} 
-                            variant="h5" 
+                            variant="h6" 
                             fontWeight={600} 
                             >
                             {transaction.user}  
@@ -121,11 +121,11 @@ const Dashboard = () => {
                                 {transaction.date}
                                 </Box>
                             <Box
-                                backgroundColor={colors.greenAccent[500]}
+                                backgroundColor={colors.blueAccent[500]}
                                 p="5px 10px"
-                                borderRadius="4px"
+                                borderRadius="12px"
                             > 
-                            ${transaction.cost}
+                            {transaction.cost} mca
 
                             </Box>
 
