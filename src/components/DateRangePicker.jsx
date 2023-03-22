@@ -15,6 +15,7 @@ import Modal from 'react-modal';
 
 import 'react-date-range/dist/styles.css'; // main style file
 import 'react-date-range/dist/theme/default.css'; // theme css file
+import { ref } from "yup";
 
 
 
@@ -37,22 +38,34 @@ const DateRangePickerComp = () => {
     const [open, setOpen] = useState(false)
 
     const refOne = useRef(null)
+    const refCalendario = useRef(null)
 
 
     useEffect(() => {
         document.addEventListener("keydown", hideOnEscape, true)
-        document.addEventListener("click", hideOnClickOutside, true)
+        // document.addEventListener("click", hideOnClickOutside, true)
 
     }, [])
-
+    
     const hideOnEscape = (e) => {
         if(e.key === "Escape") setOpen(false)
     }
 
-    const hideOnClickOutside = (e) => {
 
-        if( refOne.current && !refOne.current.contains(e.target) ) setOpen(false)
+
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (refCalendario.current && !refCalendario.current.contains(event.target)) {
+        setOpen(false);
+      }
     }
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [refCalendario]);
+
+
 
     const customStyles = {
     content: {    
@@ -75,6 +88,7 @@ const DateRangePickerComp = () => {
         value={ ` ${format(range[0].startDate, "dd/MM/yyyy")} a ${format(range[0].endDate, "dd/MM/yyyy")} ` }
         readOnly
         onClick={ () => setOpen(open => !open)}
+        
         />
         
         <Modal
@@ -83,7 +97,9 @@ const DateRangePickerComp = () => {
         contentLabel="Example Modal"
         >
         {open &&
-        <DateRange 
+        <DateRange  
+          ref={refCalendario}
+          classNames={"calendario"}
           onChange = { item => setRange([item.selection]) }
           editableDateInputs={true}
           moveRangeOnFirstSelection={false}
