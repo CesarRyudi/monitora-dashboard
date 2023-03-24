@@ -10,7 +10,7 @@ import  PieChartOutlineOutlinedIcon from "@mui/icons-material/PieChartOutlineOut
 import  TimelineOutlinedIcon from "@mui/icons-material/TimelineOutlined";
 import  MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import  MapOutlinedIcon from "@mui/icons-material/MapOutlined";
-// import  HelpOutlinedIcon from "@mui/icons-material/HelpOutlined";
+import  HelpOutlinedIcon from "@mui/icons-material/HelpOutlined";
 // import  BarChartOutlinedIcon from "@mui/icons-material/BarChartOutlined";
 // import  PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 // import  PeopleOutlinedIcon from "@mui/icons-material/PeopleOutlined";
@@ -129,13 +129,14 @@ const Sidebar = () => {
                         icon={<CalendarTodayOutlinedIcon />}
                         selected={selected}
                         setSelected={setSelected}
-                        />
-                        <Item title="FAQ " 
-                        to="/faq" 
+                        />*/}
+
+                        {/* <Item title="FAQ " 
+                        to="/map" 
                         icon={<HelpOutlinedIcon />}
                         selected={selected}
                         setSelected={setSelected}
-                        /> */}
+                        />  */}
 
                         <Typography variant="h6" color={colors.grey[300]} sx={{m: "15px 0 5px 20px" }}>Gráficos</Typography>
                         

@@ -5,6 +5,8 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import Header from "../../components/Header";
 import  SearchIcon from "@mui/icons-material/Search";
 import urlLocal from "../../isHome";
+import MapComponent from "../../components/Mapa/Map";
+import Map from "../../components/Mapa/Map";
 
 
 
@@ -205,6 +207,10 @@ const Form = () => {
             )}
 
         </Formik>
+
+        <Box m={2} pb={2}>
+            <Map />
+        </Box>
 
         </Box>
     )

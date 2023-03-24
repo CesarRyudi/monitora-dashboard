@@ -10,7 +10,7 @@ import Line from "./scenes/line";
 import Pie from "./scenes/pie";
 import fetchData from "./Funcoes/BuscaData";
 import { useEffect, useState } from "react";
-
+import Map from "./scenes/MapComponent";
  
 
 
@@ -32,7 +32,6 @@ function App() {
 
 
   return (
-    
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
@@ -46,6 +45,7 @@ function App() {
               <Route path="/cadastro" element={<Form />} />
               <Route path="/pie" element={<Pie />} />
               <Route path="/line" element={<Line />} />
+              <Route path="/map" element={<Map />} />
             </Routes>
           </main>
         </div>
