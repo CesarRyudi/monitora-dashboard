@@ -208,7 +208,7 @@ const Form = () => {
 
         </Formik>
 
-        <Box m={2} pb={2}>
+        <Box m={5} mt={2} pb={2}>
             <Map />
         </Box>
 

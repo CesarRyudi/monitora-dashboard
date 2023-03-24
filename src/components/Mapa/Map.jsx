@@ -54,7 +54,7 @@ class Map extends Component {
         center={center}
         zoom={13}
         // scrollWheelZoom={false}
-        style={{ height: "300px", width: "100%" }}
+        style={{ height: "350px", width: "100%" }}
       >
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
         <Marker position={center} icon={icon}>
