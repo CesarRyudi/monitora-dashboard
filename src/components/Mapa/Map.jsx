@@ -36,7 +36,11 @@ class Map extends Component {
       },
       (error) => {
         console.error(error);
-        this.setState({ loading: false });
+        console.log("Enviando coordenada padrão...")
+        this.setState({ 
+          loading: false,
+          center: [ -23.4990369 , -46.8746329 ],
+        });
       },
       { enableHighAccuracy: true }
     );
