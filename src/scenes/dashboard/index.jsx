@@ -9,8 +9,6 @@ import TrafficIcon from "@mui/icons-material/Traffic"
 import PointOfSaleIcon from "@mui/icons-material/PointOfSale"
 import LineChart from "../../components/LineChart"; 
 import PieChart from "../../components/PieChart";
-import StatBox from "../../components/StatBox";
-import Topbar from "../Global/Topbar";
 
 
 const Dashboard = () => {
