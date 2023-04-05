@@ -18,17 +18,18 @@ function App() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    const token = localStorage.getItem("chaveDeAcesso");
-    if(!token) {
+    // const token = localStorage.getItem("chaveDeAcesso");
+    // console.log(token)
+    // if(!token) {
+    if(false) {
       alert("Faça o login primeiro");
       window.location.href = "https://monitora-dashboard-login.vercel.app/";
     }else {
     async function fetchDataFromAPI() {
       const data = await fetchData();
       setData(data);
-      // window.location.href = "https://monitora-react-dashboard.vercel.app/dashboard";
-    fetchDataFromAPI();
     }
+      fetchDataFromAPI();
   }
   }, []);
 
@@ -39,10 +40,10 @@ function App() {
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <div className="app">
-          <div style={{ display: "flex", width: "20%", minHeight: "100vh" }}>
+          <div style={{ display: "flex",  minHeight: "100vh" }}>
             <Sidebar />
           </div>
-          <div style={{ width: "120%", overflowY: "auto" }}>
+          <div style={{ display: "flex", width: "100%", overflowY: "auto" }}>
             <Main />
           </div>
         </div>
@@ -56,11 +57,11 @@ function Main(){
 
   return (
     <main className="content">
-      {location.pathname !== "/cadastro" && location.pathname !== "/" && (
+      {location.pathname !== "/cadastro" && (
         <Topbar />
       )}
       <Routes>
-        <Route path="/dashboard" element={<DashboardContent />} />
+        <Route path="/" element={<DashboardContent />} />
         <Route path="/tabela" element={<Contacts />} />
         <Route path="/cadastro" element={<Form />} />
         <Route path="/pie" element={<Pie />} />
