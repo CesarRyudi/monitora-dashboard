@@ -31,8 +31,10 @@ function App() {
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <div className="app">
-          <Sidebar />
+        <div className="app" >
+          <div style={{ height: "100%" }}>
+            <Sidebar style={{ height: "100%" }} />
+          </div>
           <Main />
         </div>
       </ThemeProvider>
