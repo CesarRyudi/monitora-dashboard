@@ -18,15 +18,16 @@ function App() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    const token = localStorage.getItem("meuTokenJWT");
-    // if(!token) {
-      if(!true){
+    const token = localStorage.getItem("chaveDeAcesso");
+    if(!token) {
+      // if(!true){
       window.location.href = "https://monitora-dashboard-login.vercel.app/";
       console.log(token)
     }else {
     async function fetchDataFromAPI() {
       const data = await fetchData();
       setData(data);
+      window.location.href = "https://monitora-react-dashboard.vercel.app/dashboard";
     }
     fetchDataFromAPI();
   }
@@ -42,7 +43,7 @@ function App() {
           <div style={{ display: "flex", width: "20%", minHeight: "100vh" }}>
             <Sidebar />
           </div>
-          <div style={{ width: "100%", overflowY: "auto" }}>
+          <div style={{ width: "120%", overflowY: "auto" }}>
             <Main />
           </div>
         </div>
