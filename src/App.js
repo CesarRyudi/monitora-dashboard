@@ -20,16 +20,15 @@ function App() {
   useEffect(() => {
     const token = localStorage.getItem("chaveDeAcesso");
     if(!token) {
-      // if(!true){
+      alert("Faça o login primeiro");
       window.location.href = "https://monitora-dashboard-login.vercel.app/";
-      console.log(token)
     }else {
     async function fetchDataFromAPI() {
       const data = await fetchData();
       setData(data);
-      window.location.href = "https://monitora-react-dashboard.vercel.app/dashboard";
-    }
+      // window.location.href = "https://monitora-react-dashboard.vercel.app/dashboard";
     fetchDataFromAPI();
+    }
   }
   }, []);
 
