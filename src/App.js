@@ -12,28 +12,29 @@ import fetchData from "./Funcoes/BuscaData";
 import { useEffect, useState } from "react";
 import Map from "./scenes/MapComponent";
 import { height } from "@mui/system";
+import Cookies from "js-cookie";
 
 function App() {
   const [theme, colorMode] = useMode();
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    // const token = localStorage.getItem("chaveDeAcesso");
+    // const token = Cookies.get("meu_app_token");
     // console.log(token)
     // if(!token) {
     if(false) {
       alert("Faça o login primeiro");
       window.location.href = "https://monitora-dashboard-login.vercel.app/";
     }else {
-    async function fetchDataFromAPI() {
-      const data = await fetchData();
-      setData(data);
-    }
+      async function fetchDataFromAPI() {
+        const data = await fetchData();
+        setData(data);
+        console.log(data);
+      }
       fetchDataFromAPI();
-  }
+    }
   }, []);
 
-  console.log(data);
 
   return (
     <ColorModeContext.Provider value={colorMode}>
