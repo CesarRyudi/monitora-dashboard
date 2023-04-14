@@ -1,6 +1,6 @@
 import { ColorModeContext, useMode } from "./theme";
 import { CssBaseline, ThemeProvider } from "@mui/material";
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route, useLocation, Navigate, useNavigate } from "react-router-dom";
 import Topbar from "./scenes/Global/Topbar";
 import Sidebar from "./scenes/Global/Sidebar";
 import DashboardContent from "./scenes/dashboard";
@@ -18,14 +18,14 @@ import Cookies from "js-cookie";
 function App() {
   const [theme, colorMode] = useMode();
   const [data, setData] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    // const token = Cookies.get("meu_app_token");
-    // console.log(token)
-    // if(!token) {
-    if(false) {
-      alert("Faça o login primeiro");
-      window.location.href = "https://monitora-dashboard-login.vercel.app/";
+    
+    const token = Cookies.get("meu_app_token");
+    console.log(token)
+    if(!token) {
+      navigate("/login"); 
     }else {
       async function fetchDataFromAPI() {
         const data = await fetchData();
@@ -59,12 +59,12 @@ function Main(){
 
   return (
     <main className="content">
-      {(location.pathname !== "/cadastro" && location.pathname !== "/" )&& (
+      {(location.pathname !== "/cadastro" && location.pathname !== "/login" )&& (
         <Topbar />  
       )}
       <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="/dashboard" element={<DashboardContent />} />
+        <Route path="/" element={<DashboardContent />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/tabela" element={<Contacts />} />
         <Route path="/cadastro" element={<Form />} />
         <Route path="/pie" element={<Pie />} />

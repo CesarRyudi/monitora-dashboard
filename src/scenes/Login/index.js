@@ -20,7 +20,7 @@ const Login = () => {
       const response = await fazerPostDeJSON(form);
       console.log("response do login", response);
       if (response.autenticado === true) {
-        navigate("/dashboard"); 
+        navigate("/"); 
       } else {
         alert("Usuário ou senha inválidos.");
       }

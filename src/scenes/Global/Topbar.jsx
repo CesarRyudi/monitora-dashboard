@@ -10,11 +10,17 @@ import  PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import DateRangePickerComp from "../../components/DateRangePicker";
 import SelectComp from "../../components/DropDown";
 import SelectPonto from "../../components/DropDownPontos";
+import Cookies from 'js-cookie';
 
 const Topbar = () => {
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
     const colorMode = useContext(ColorModeContext);
+
+    function ApagaCookie(){
+        Cookies.remove('meu_app_token')
+        console.log("Cookie apagado")
+    } 
 
     return ( 
     <Box display="flex" justifyContent="space-between" p={0} mb="20px">
@@ -57,7 +63,7 @@ const Topbar = () => {
             </IconButton>
 
             <IconButton>
-                <PersonOutlinedIcon />
+                <PersonOutlinedIcon onClick={ApagaCookie} />
             </IconButton>
         </Box>
     </Box>

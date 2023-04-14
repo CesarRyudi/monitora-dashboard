@@ -1,3 +1,5 @@
+import Cookies from 'js-cookie';
+
 export default async function fazerPostDeJSON(dados) {
   const url = "https://geminiapi-services-x2awrs6jqq-rj.a.run.app/api/v1/auth/login";
   
@@ -19,6 +21,11 @@ export default async function fazerPostDeJSON(dados) {
   })
   .then(data => {
     console.log("Resposta do servidor:", data);
+    const token = data.user.access
+    console.log("Token: ",token)
+    Cookies.set('meu_app_token', token, { path: '/' });
+    const tokenCookie = Cookies.get('meu_app_token');
+    console.log('Token do cookie:', tokenCookie);
     return { autenticado: true };
   })
   .catch(error => {

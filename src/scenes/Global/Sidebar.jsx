@@ -41,7 +41,7 @@ const Sidebar = () => {
     const [selected, setSelected] = useState("Dashboard");
     const location = useLocation();
 
-    if(location.pathname === "/"){
+    if(location.pathname === "/login"){
         return
     }else{
     return (
@@ -108,7 +108,7 @@ const Sidebar = () => {
                     {/* Menu Itens  */}
                     <Box paddingLeft={isCollapsed? undefined : "10%"}> 
                         <Item title="Dashboard" 
-                        to="/dashboard" 
+                        to="/" 
                         icon={<HomeOutlinedIcon />}
                         selected={selected}
                         setSelected={setSelected}
