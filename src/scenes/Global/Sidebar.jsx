@@ -14,6 +14,7 @@ import  HelpOutlinedIcon from "@mui/icons-material/HelpOutlined";
 // import  BarChartOutlinedIcon from "@mui/icons-material/BarChartOutlined";
 // import  PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 // import  PeopleOutlinedIcon from "@mui/icons-material/PeopleOutlined";
+import { useLocation } from "react-router-dom";
 
 
 const Item = ({title, to, icon, selected, setSelected }) => {
@@ -30,13 +31,19 @@ const Item = ({title, to, icon, selected, setSelected }) => {
 }
 
 
+
+
+
 const Sidebar = () => {
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
     const [isCollapsed, setIsCollapsed] = useState(false);
     const [selected, setSelected] = useState("Dashboard");
+    const location = useLocation();
 
-
+    if(location.pathname === "/"){
+        return
+    }else{
     return (
         <Box sx={{
             "& .pro-sidebar-inner": {
@@ -101,7 +108,7 @@ const Sidebar = () => {
                     {/* Menu Itens  */}
                     <Box paddingLeft={isCollapsed? undefined : "10%"}> 
                         <Item title="Dashboard" 
-                        to="/" 
+                        to="/dashboard" 
                         icon={<HomeOutlinedIcon />}
                         selected={selected}
                         setSelected={setSelected}
@@ -175,6 +182,7 @@ const Sidebar = () => {
             </ProSidebar>
         </Box>
     );
+                    }
 };
 
 export default Sidebar;

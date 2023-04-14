@@ -8,6 +8,7 @@ import Contacts from "./scenes/contacts";
 import Form from "./scenes/form";
 import Line from "./scenes/line";
 import Pie from "./scenes/pie";
+import Login from "./scenes/Login/index"
 import fetchData from "./Funcoes/BuscaData";
 import { useEffect, useState } from "react";
 import Map from "./scenes/MapComponent";
@@ -58,11 +59,12 @@ function Main(){
 
   return (
     <main className="content">
-      {location.pathname !== "/cadastro" && (
-        <Topbar />
+      {(location.pathname !== "/cadastro" && location.pathname !== "/" )&& (
+        <Topbar />  
       )}
       <Routes>
-        <Route path="/" element={<DashboardContent />} />
+        <Route path="/" element={<Login />} />
+        <Route path="/dashboard" element={<DashboardContent />} />
         <Route path="/tabela" element={<Contacts />} />
         <Route path="/cadastro" element={<Form />} />
         <Route path="/pie" element={<Pie />} />
