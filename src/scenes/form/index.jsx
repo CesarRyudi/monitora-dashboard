@@ -3,10 +3,9 @@ import { Formik } from "formik";
 import * as yup from "yup";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Header from "../../components/Header";
-import SearchIcon from "@mui/icons-material/Search";
-import urlLocal from "../../isHome";
 import MapComponent from "../../components/Mapa/Map";
 import Map from "../../components/Mapa/Map";
+import SearchIcon from "@mui/icons-material/Search";
 
 var initialValues = {
   nome: "",
@@ -73,7 +72,7 @@ const Form = () => {
 
   const handleFormSubmit = (values) => {
     const dataToSend = JSON.stringify(values);
-    const urlCadastro = `${urlLocal}api/v1/cadastros/enderecos`;
+    const urlCadastro = `${1}api/v1/cadastros/enderecos`;
 
     fetch(urlCadastro, {
       method: "POST",

@@ -23,17 +23,17 @@ function App() {
   useEffect(() => {
     
     const token = Cookies.get("meu_app_token");
-    console.log(token)
-    if(!token) {
-      navigate("/login"); 
-    }else {
+    // console.log(token)
+    // if(!token) {
+    //   navigate("/login"); 
+    // }else {
       async function fetchDataFromAPI() {
         const data = await fetchData();
         setData(data);
         console.log(data);
       }
       fetchDataFromAPI();
-    }
+    // }
   }, []);
 
 
