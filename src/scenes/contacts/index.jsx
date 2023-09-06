@@ -4,10 +4,22 @@ import { tokens } from "../../theme";
 import { mockDataContacts } from "../../data/MockData";
 import Header from "../../components/Header";
 import { useTheme } from "@mui/material";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 const Tabela = () => {
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
+    const [data, setData] = useState();
+
+      useEffect(() => {
+        axios.get(
+          "https://sheet.best/api/sheets/edf54132-8e64-4312-a5de-236a3368aafb"
+        ).then((dados) => {
+            console.log(dados.data);
+            setData(dados.data);
+        })
+      }, []);
 
     const columns = [ 
         {field: "id", headerName: "ID", flex: 0.5},

@@ -1,64 +1,98 @@
-import { ResponsiveLine } from '@nivo/line'
-import React, {useCallback} from 'react';
-import { useTheme } from '@mui/material'; 
-import { tokens } from '../theme';
-import { dados as data } from '../data/MockData';
-import { useNavigate as navigate } from 'react-router-dom';
-
+import { ResponsiveLine } from "@nivo/line";
+import React, { useCallback } from "react";
+import { useTheme } from "@mui/material";
+import { tokens } from "../theme";
+// import { dados as data } from '../data/MockData';
+import { useNavigate as navigate } from "react-router-dom";
+import axios from "axios";
+import { useEffect } from "react";
+import { useState } from "react";
 
 const LineChart = () => {
-    const theme = useTheme();
-    const colors = tokens(theme.palette.mode);
+  const theme = useTheme();
+  const colors = tokens(theme.palette.mode);
 
-    const handleOnClick = useCallback(() => navigate('/line', {replace: true}), []);
+  const handleOnClick = useCallback(
+    () => navigate("/line", { replace: true }),
+    []
+  );
 
-    const CustomTooltip = ({ point }) => {
-          return (
-            <div
-              style={{
-                background: colors.primary[300],
-                color: colors.grey[100],
-                fontSize: 16,
-                padding: "2px 10px",
-                border: "1px solid #ccc",
-                borderRadius: 4,
-                // position: "absolute",
-                top: `${point.y + 1}px`,
-                left: `${point.x + 1}px`,
-                zIndex: 1,
-              }}
-            >
-              {point.data.legend && <strong>{point.data.legend}</strong>}
-              <div>
-                <span
-                  style={{
-                    display: "inline-block",
-                    width: "11px",
-                    height: "11px",
-                    backgroundColor: point.serieColor,
-                    marginRight: "5px",
-                    marginLeft: "-3px",
-                    border: "1px solid white",
-                    borderRadius: 2,
-                  }}
-                />
-                <strong>
-                  {point.data.xFormatted.slice(0, 7)}: {point.data.yFormatted}
-                  mca
-                </strong>
-              </div>
-            </div>
-          );
-        }
+  const CustomTooltip = ({ point }) => {
+    return (
+      <div
+        style={{
+          background: colors.primary[300],
+          color: colors.grey[100],
+          fontSize: 16,
+          padding: "2px 10px",
+          border: "1px solid #ccc",
+          borderRadius: 4,
+          // position: "absolute",
+          top: `${point.y + 1}px`,
+          left: `${point.x + 1}px`,
+          zIndex: 1,
+        }}
+      >
+        {point.data.legend && <strong>{point.data.legend}</strong>}
+        <div>
+          <span
+            style={{
+              display: "inline-block",
+              width: "11px",
+              height: "11px",
+              backgroundColor: point.serieColor,
+              marginRight: "5px",
+              marginLeft: "-3px",
+              border: "1px solid white",
+              borderRadius: 2,
+            }}
+          />
+          <strong>
+            {point.data.xFormatted.slice(0, 7)}: {point.data.yFormatted}
+          </strong>
+        </div>
+      </div>
+    );
+  };
+  const [data, setData] = useState();
 
-    
+  useEffect(() => {
+    axios
+      .get("https://sheet.best/api/sheets/edf54132-8e64-4312-a5de-236a3368aafb")
+      .then((response) => {
+        const apiData = response.data;
+        console.log(apiData);
+
+        const formattedData = [
+          {
+            id: "Teste",
+            data: apiData.map((item) => ({
+              x: item.x,
+              y: parseInt(item.y, 10),
+            })),
+          },
+          {
+            id: "Idades",
+            data: apiData.map((item) => ({
+              x: item.x,
+              y: parseInt(item.age, 10),
+            })),
+          },
+        ];
+
+        console.log(formattedData);
+        setData(formattedData);
+      });
+  }, []);
+
+  if (!data) {
+    return <div>Carregando...</div>;
+  } else {
     return (
       <ResponsiveLine
-        onClick={handleOnClick}
         data={data}
         tooltip={CustomTooltip}
         innerPadding={1}
-      
         theme={{
           tooltip: {
             container: {
@@ -170,7 +204,7 @@ const LineChart = () => {
         ]}
       />
     );
-
+  }
 };
 
 export default LineChart;
