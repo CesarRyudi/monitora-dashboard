@@ -65,19 +65,26 @@ const LineChart = () => {
 
         const formattedData = [
           {
-            id: "Teste",
+            id: "Impressions",
             data: apiData.map((item) => ({
-              x: item.x,
-              y: parseInt(item.y, 10),
+              x: item["Ad Name"],
+              y: parseInt(item["Impressions"], 10),
             })),
           },
           {
-            id: "Idades",
+            id: "Reach",
             data: apiData.map((item) => ({
-              x: item.x,
-              y: parseInt(item.age, 10),
+              x: item["Ad Name"],
+              y: parseInt(item["Reach (Estimated)"], 10),
             })),
           },
+          // {
+          //   id: "Spend",
+          //   data: apiData.map((item) => ({
+          //     x: item["Ad Name"],
+          //     y: parseInt(item["Spend (Cost, Amount Spent)"], 10),
+          //   })),
+          // },
         ];
 
         console.log(formattedData);
