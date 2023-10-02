@@ -2,7 +2,7 @@ import { ResponsiveLine } from "@nivo/line";
 import React, { useCallback } from "react";
 import { useTheme } from "@mui/material";
 import { tokens } from "../theme";
-// import { dados as data } from '../data/MockData';
+import { dados as data } from '../data/MockData';
 import { useNavigate as navigate } from "react-router-dom";
 import axios from "axios";
 import { useEffect } from "react";
@@ -54,43 +54,36 @@ const LineChart = () => {
       </div>
     );
   };
-  const [data, setData] = useState();
+  // const [data, setData] = useState();
 
-  useEffect(() => {
-    axios
-      .get("https://sheet.best/api/sheets/edf54132-8e64-4312-a5de-236a3368aafb")
-      .then((response) => {
-        const apiData = response.data;
-        console.log(apiData);
+  // useEffect(() => {
+  //   axios
+  //     .get("https://sheet.best/api/sheets/edf54132-8e64-4312-a5de-236a3368aafb")
+  //     .then((response) => {
+  //       const apiData = response.data;
+  //       console.log(apiData);
 
-        const formattedData = [
-          {
-            id: "Impressions",
-            data: apiData.map((item) => ({
-              x: item["Ad Name"],
-              y: parseInt(item["Impressions"], 10),
-            })),
-          },
-          {
-            id: "Reach",
-            data: apiData.map((item) => ({
-              x: item["Ad Name"],
-              y: parseInt(item["Reach (Estimated)"], 10),
-            })),
-          },
-          // {
-          //   id: "Spend",
-          //   data: apiData.map((item) => ({
-          //     x: item["Ad Name"],
-          //     y: parseInt(item["Spend (Cost, Amount Spent)"], 10),
-          //   })),
-          // },
-        ];
+  //       const formattedData = [
+  //         {
+  //           id: "Impressions",
+  //           data: apiData.map((item) => ({
+  //             x: item["Ad Name"],
+  //             y: parseInt(item["Impressions"], 10),
+  //           })),
+  //         },
+  //         {
+  //           id: "Reach",
+  //           data: apiData.map((item) => ({
+  //             x: item["Ad Name"],
+  //             y: parseInt(item["Reach (Estimated)"], 10),
+  //           })),
+  //         },
+  //       ];
 
-        console.log(formattedData);
-        setData(formattedData);
-      });
-  }, []);
+  //       console.log(formattedData);
+  //       setData(formattedData);
+  //     });
+  // }, []);
 
   if (!data) {
     return <div>Carregando...</div>;
